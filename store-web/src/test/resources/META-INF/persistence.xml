@@ -3,7 +3,14 @@
              version="2.0">
     <persistence-unit name="store" transaction-type="RESOURCE_LOCAL">
 
-        <class>store.entity.Product</class>
+        <class>store.entity.customer.Address</class>
+        <class>store.entity.customer.Customer</class>
+        <class>store.entity.customer.BusinessCustomer</class>
+        <class>store.entity.customer.PrivateCustomer</class>
+        <class>store.entity.order.PurchaseOrder</class>
+        <class>store.entity.order.PurchaseOrderItem</class>
+        <class>store.entity.product.Price</class>
+        <class>store.entity.product.Product</class>
         <exclude-unlisted-classes>true</exclude-unlisted-classes>
 
         <properties>
