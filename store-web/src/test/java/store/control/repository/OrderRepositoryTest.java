@@ -1,11 +1,8 @@
 package store.control.repository;
 
-import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import store.BaseTestWithEntityManager;
-import store.entity.customer.BusinessCustomer;
-import store.entity.customer.PrivateCustomer;
 import store.entity.order.PurchaseOrder;
 
 public class OrderRepositoryTest extends BaseTestWithEntityManager {

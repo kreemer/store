@@ -5,7 +5,6 @@ import store.entity.product.Product;
 
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
-import javax.persistence.criteria.Order;
 
 @Entity
 public class PurchaseOrderItem extends BaseEntity {

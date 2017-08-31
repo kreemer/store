@@ -2,7 +2,6 @@ package store.control.repository;
 
 import store.entity.BaseEntity;
 
-import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
@@ -25,10 +24,10 @@ public class BaseRepository {
     public BaseEntity save(BaseEntity entity) {
         if (entity.getId() == null) {
             em.persist(entity);
+            return entity;
         } else {
-            entity = em.merge(entity);
+            return em.merge(entity);
         }
-        return entity;
     }
 
     public void remove(BaseEntity entity) {

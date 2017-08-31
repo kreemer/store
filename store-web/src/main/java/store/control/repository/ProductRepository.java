@@ -4,7 +4,6 @@ import store.entity.product.Product;
 
 import javax.ejb.Stateless;
 import javax.persistence.TypedQuery;
-import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
