@@ -4,7 +4,6 @@ import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
-import store.entity.product.Product;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
