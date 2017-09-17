@@ -4,18 +4,21 @@ import store.entity.BaseEntity;
 import store.entity.customer.Address;
 import store.entity.customer.Customer;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Entity;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 @Entity
 public class PurchaseOrder extends BaseEntity {
 
-    @ManyToOne
-    private Customer customer;
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date purchaseDate;
+
+    @Temporal(TemporalType.DATE)
+    private Date deliveryDate;
+
+    private Integer customerId;
 
     @ManyToOne
     private Address shippingAddress;
@@ -23,16 +26,28 @@ public class PurchaseOrder extends BaseEntity {
     @OneToMany(mappedBy = "order", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<PurchaseOrderItem> items = new ArrayList<>();
 
-    public List<PurchaseOrderItem> getItems() {
-        return items;
+    public Integer getCustomerId() {
+        return customerId;
     }
 
-    public Customer getCustomer() {
-        return customer;
+    public void setCustomerId(Integer customerId) {
+        this.customerId = customerId;
     }
 
-    public void setCustomer(Customer customer) {
-        this.customer = customer;
+    public Date getPurchaseDate() {
+        return purchaseDate;
+    }
+
+    public void setPurchaseDate(Date purchaseDate) {
+        this.purchaseDate = purchaseDate;
+    }
+
+    public Date getDeliveryDate() {
+        return deliveryDate;
+    }
+
+    public void setDeliveryDate(Date deliveryDate) {
+        this.deliveryDate = deliveryDate;
     }
 
     public Address getShippingAddress() {
@@ -41,6 +56,10 @@ public class PurchaseOrder extends BaseEntity {
 
     public void setShippingAddress(Address shippingAddress) {
         this.shippingAddress = shippingAddress;
+    }
+
+    public List<PurchaseOrderItem> getItems() {
+        return items;
     }
 
     public void setItems(List<PurchaseOrderItem> items) {
