@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement />
+  <nodes>
+    <node x="0.0" y="189.0">store.entity.order.PurchaseOrderItem</node>
+    <node x="272.0" y="189.0">store.entity.order.PurchaseOrder</node>
+    <node x="0.0" y="373.0">store.entity.product.Product</node>
+    <node x="142.5" y="0.0">store.entity.customer.Customer</node>
+    <node x="0.0" y="281.0">store.entity.product.PriceType</node>
+    <node x="225.0" y="97.0">store.entity.customer.BusinessCustomer</node>
+    <node x="195.0" y="281.0">store.entity.customer.Address</node>
+    <node x="182.0" y="373.0">store.entity.product.Price</node>
+    <node x="0.0" y="97.0">store.entity.customer.PrivateCustomer</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="store.entity.customer.BusinessCustomer" target="store.entity.customer.Customer">
+      <point x="0.0" y="-23.5" />
+      <point x="334.5" y="72.0" />
+      <point x="256.5" y="72.0" />
+      <point x="38.0" y="23.5" />
+    </edge>
+    <edge source="store.entity.customer.PrivateCustomer" target="store.entity.customer.Customer">
+      <point x="0.0" y="-23.5" />
+      <point x="102.5" y="72.0" />
+      <point x="180.5" y="72.0" />
+      <point x="-38.0" y="23.5" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="0.675356921166977" x="257.1162683823529" y="715.5" />
+  <SelectedNodes />
+  <Categories />
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+
