@@ -21,9 +21,6 @@ public abstract class Customer extends BaseEntity {
     @ManyToOne
     private Address shippingAddress;
 
-    @OneToMany(mappedBy = "customer")
-    private List<PurchaseOrder> orders = new ArrayList<>();
-
     public Address getMailingAddress() {
         return mailingAddress;
     }

@@ -4,6 +4,7 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import store.BaseTestWithEntityManager;
+import store.control.repository.CustomerRepository;
 import store.entity.customer.BusinessCustomer;
 import store.entity.customer.PrivateCustomer;
 
