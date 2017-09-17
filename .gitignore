@@ -23,3 +23,6 @@ hs_err_pid*
 
 /store-web/target
 /.idea
+
+/store-web/*.iml
+*.iml
