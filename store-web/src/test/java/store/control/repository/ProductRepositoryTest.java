@@ -4,6 +4,7 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import store.BaseTestWithEntityManager;
+import store.control.repository.ProductRepository;
 import store.entity.product.Product;
 
 import java.util.List;
