@@ -2,9 +2,9 @@ package store.entity.order;
 
 import store.entity.BaseEntity;
 import store.entity.customer.Address;
-import store.entity.customer.Customer;
 
 import javax.persistence.*;
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -15,7 +15,7 @@ public class PurchaseOrder extends BaseEntity {
     @Temporal(TemporalType.TIMESTAMP)
     private Date purchaseDate;
 
-    @Temporal(TemporalType.DATE)
+    @Temporal(TemporalType.TIMESTAMP)
     private Date deliveryDate;
 
     private Integer customerId;
@@ -74,5 +74,9 @@ public class PurchaseOrder extends BaseEntity {
     public void removeItem(PurchaseOrderItem item) {
         item.setOrder(null);
         items.remove(item);
+    }
+
+    public BigDecimal getTotalPrice() {
+        return items.stream().map(item -> item.getTotalPrice()).reduce(BigDecimal.ZERO, BigDecimal::add);
     }
 }

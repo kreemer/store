@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:c="http://java.sun.com/jsp/jstl/core" xmlns:f="http://xmlns.jcp.org/jsf/core">
+<ui:composition template="/template/template.xhtml">
+    <ui:define name="content">
+
+        <div style="padding-top: 20px;">
+            <h2>Catalog</h2>
+
+            <table class="table">
+                <thead class="thead">
+                <tr>
+                    <th>Number</th>
+                    <th>Description</th>
+                    <th style="text-align: right;">Price</th>
+                    <th></th>
+                </tr>
+                </thead>
+                <tbody>
+                <c:forEach items="#{catalogBean.products}" var="product">
+                    <tr>
+                        <td>#{product.number}</td>
+                        <td>#{product.name}</td>
+                        <td style="text-align: right;">
+                            <h:outputText value="#{product.prices.get(0).amount}">
+                                <f:convertNumber pattern="#0.00"/>
+                            </h:outputText>
+                        </td>
+                        <td>
+                            <h:form>
+                                <h:commandLink value="Add to cart" action="#{cartBean.addItem(product)}"/>
+                            </h:form>
+                        </td>
+                    </tr>
+                </c:forEach>
+                </tbody>
+            </table>
+
+        </div>
+    </ui:define>
+</ui:composition>
+</html>

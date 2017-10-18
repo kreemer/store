@@ -7,35 +7,20 @@ import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.ManyToOne;
 import java.math.BigDecimal;
-import java.sql.Date;
 
 @Entity
 public class Price extends BaseEntity {
 
-    private Date validFrom;
-    private Date validTo;
+//    @Temporal(TemporalType.TIMESTAMP)
+//    private Date validFrom;
+//    @Temporal(TemporalType.TIMESTAMP)
+//    private Date validTo;
     private BigDecimal amount;
     @Enumerated(EnumType.STRING)
     private PriceType type;
 
     @ManyToOne
     private Product product;
-
-    public Date getValidFrom() {
-        return validFrom;
-    }
-
-    public void setValidFrom(Date validFrom) {
-        this.validFrom = validFrom;
-    }
-
-    public Date getValidTo() {
-        return validTo;
-    }
-
-    public void setValidTo(Date validTo) {
-        this.validTo = validTo;
-    }
 
     public BigDecimal getAmount() {
         return amount;

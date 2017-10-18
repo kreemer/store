@@ -1,4 +1,4 @@
-package store.control.dto;
+package store.entity.dto;
 
 import java.math.BigDecimal;
 import java.util.Date;

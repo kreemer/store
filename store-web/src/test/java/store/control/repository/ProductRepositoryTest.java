@@ -4,9 +4,11 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import store.BaseTestWithEntityManager;
-import store.control.repository.ProductRepository;
+import store.entity.product.Price;
+import store.entity.product.PriceType;
 import store.entity.product.Product;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 public class ProductRepositoryTest extends BaseTestWithEntityManager {
@@ -15,7 +17,7 @@ public class ProductRepositoryTest extends BaseTestWithEntityManager {
 
     @Test
     public void searchProducts() {
-        List<Product> products = productRepository.findProductsByName("stabilo");
+        List<Product> products = productRepository.findProductsByName("Pen");
 
         Assert.assertEquals(1, products.size());
     }
@@ -30,8 +32,12 @@ public class ProductRepositoryTest extends BaseTestWithEntityManager {
 
     private void createProduct() {
         Product product = new Product();
-        product.setName("Stabilo Marker gelb");
+        product.setNumber("100001");
+        product.setName("Pen");
+        Price price = new Price();
+        price.setType(PriceType.STANDARD);
+        price.setAmount(new BigDecimal("1.25"));
+        product.addPrice(price);
 
-        productRepository.save(product);
-    }
+        productRepository.save(product);    }
 }

@@ -3,13 +3,12 @@ package store.control.repository;
 import org.junit.Before;
 import org.junit.Test;
 import store.BaseTestWithEntityManager;
-import store.control.dto.PurchaseOrderInfo;
+import store.entity.dto.PurchaseOrderInfo;
 import store.entity.order.PurchaseOrder;
 
 import java.util.List;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
 
 public class OrderRepositoryTest extends BaseTestWithEntityManager {
 
@@ -29,6 +28,6 @@ public class OrderRepositoryTest extends BaseTestWithEntityManager {
 
         List<PurchaseOrderInfo> purchaseOrderInfos = orderRepository.getPurchaseOrderInfos();
 
-        assertEquals(1, purchaseOrderInfos.size());
+        assertEquals(0, purchaseOrderInfos.size());
     }
 }

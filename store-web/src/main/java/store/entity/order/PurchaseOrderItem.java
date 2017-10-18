@@ -52,6 +52,8 @@ public class PurchaseOrderItem extends BaseEntity {
 
     public void setProduct(Product product) {
         this.product = product;
+        this.price = this.product.getPrices().get(0).getAmount();
+        this.priceType = this.product.getPrices().get(0).getType();
     }
 
     public PurchaseOrder getOrder() {
