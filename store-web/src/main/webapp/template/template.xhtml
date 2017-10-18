@@ -9,7 +9,8 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
 
-    <h:outputStylesheet name="css/bootstrap.min.css" />
+    <h:outputStylesheet name="css/bootstrap.min.css"/>
+    <h:outputStylesheet name="css/store.css"/>
 
     <title>Store</title>
 </h:head>
@@ -27,24 +28,67 @@
                 </button>
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <h:form class="form-inline my-2 my-lg-0">
-                        <h:inputText value="#{catalogBean.searchTerm}" styleClass="form-control mr-sm-2"></h:inputText>
-                        <h:commandButton value="Search" action="#{catalogBean.search}" styleClass="btn"/>
-                    </h:form>
-
-                    <ul class="navbar-nav mr-auto" style="padding-left: 20px;">
-                        <li class="nav-item">
+                    <div class="row" style="width: 100%;">
+                        <div class="col-lg-6">
                             <h:form>
-                                <h:commandLink action="#{cartBean.showCart}">
-                                    <h:outputText value="Cart "/>
-                                    <h:outputText
-                                            value="#{cartBean.purchaseOrder == null ? '' : cartBean.purchaseOrder.totalPrice}">
-                                        <f:convertNumber pattern="#0.00"/>
-                                    </h:outputText>
-                                </h:commandLink>
+                                <div class="form-row">
+                                    <div class="col">
+                                        <h:inputText value="#{catalogBean.searchTerm}"
+                                                     styleClass="form-control mr-sm-2"></h:inputText>
+                                    </div>
+                                    <div class="col">
+                                        <h:commandButton value="Search" action="#{catalogBean.search}"
+                                                         styleClass="btn"/>
+                                    </div>
+                                </div>
                             </h:form>
-                        </li>
-                    </ul>
+                        </div>
+                        <div class="col-lg-6">
+                            <h:panelGroup rendered="#{userBean.customer == null}">
+                                <h:form>
+                                    <div class="form-row">
+                                        <div class="col">
+                                            <h:inputText value="#{userBean.username}"
+                                                         styleClass="form-control mr-sm-2"/>
+                                        </div>
+                                        <div class="col">
+                                            <h:inputSecret value="#{userBean.password}"
+                                                           styleClass="form-control mr-sm-2"/>
+                                        </div>
+                                        <div class="col">
+                                            <h:commandButton value="Login" action="#{userBean.login}" styleClass="btn"/>
+                                        </div>
+                                    </div>
+                                </h:form>
+                            </h:panelGroup>
+                            <h:panelGroup rendered="#{userBean.customer != null}">
+                                <h:form>
+                                    <div class="form-row">
+                                        <div class="col">
+                                            <h:commandLink action="#{cartBean.showCart}">
+                                                <h:outputText value="Cart "/>
+                                                <h:outputText
+                                                        value="#{cartBean.purchaseOrder == null ? '' : cartBean.purchaseOrder.totalPrice}">
+                                                    <f:convertNumber pattern="#0.00"/>
+                                                </h:outputText>
+                                            </h:commandLink>
+                                        </div>
+                                        <div class="col">
+                                            <h:commandLink value="Orders"
+                                                           action="#{orderBean.showOrders(userBean.customer)}"/>
+                                        </div>
+                                        <div class="col">
+                                            <label>#{userBean.customer.name}</label>
+                                        </div>
+                                        <div class="col">
+                                            <h:commandButton value="Logout" action="#{userBean.logout}"
+                                                             styleClass="btn"/>
+                                        </div>
+                                    </div>
+                                </h:form>
+                            </h:panelGroup>
+                        </div>
+                    </div>
                 </div>
             </nav>
         </div>

@@ -1,6 +1,7 @@
 package store.boundry;
 
 import store.control.repository.OrderRepository;
+import store.entity.customer.Customer;
 import store.entity.order.PurchaseOrder;
 import store.entity.order.PurchaseOrderItem;
 import store.entity.product.Product;
@@ -25,11 +26,11 @@ public class CartBean implements Serializable {
 
     private PurchaseOrder purchaseOrder;
 
-    public void addItem(Product product) {
+    public void addItem(Product product, Customer customer) {
         if (purchaseOrder == null) {
             purchaseOrder = new PurchaseOrder();
+            purchaseOrder.setCustomerId(customer.getId());
             purchaseOrder.setPurchaseDate(new Date());
-            orderRepository.createPurchaseOrder(purchaseOrder);
 
             conversation.begin();
         }
@@ -37,6 +38,7 @@ public class CartBean implements Serializable {
         item.setQuantity(1);
         item.setProduct(product);
         purchaseOrder.addItem(item);
+        purchaseOrder = orderRepository.savePurchaseOrder(purchaseOrder);
     }
 
     public void removeItem(PurchaseOrderItem item) {

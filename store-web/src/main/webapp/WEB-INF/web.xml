@@ -30,14 +30,12 @@
         <welcome-file>index.jsf</welcome-file>
     </welcome-file-list>
 
-    <!--
     <security-role>
-        <role-name>webshop</role-name>
+        <role-name>store-user</role-name>
     </security-role>
 
     <login-config>
         <auth-method>BASIC</auth-method>
-        <realm-name>prodega-login</realm-name>
+        <realm-name>other</realm-name>
     </login-config>
-    -->
 </web-app>

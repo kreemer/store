@@ -39,7 +39,7 @@ public class CustomerRepositoryTest extends BaseTestWithEntityManager {
     public void createPrivateCustomer() {
         PrivateCustomer customer = new PrivateCustomer();
         customer.setFirstName("Simon");
-        customer.setLastName("Martinelli");
+        customer.setName("Martinelli");
 
         customerRepository.save(customer);
     }

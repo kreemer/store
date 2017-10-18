@@ -9,34 +9,40 @@
     <ui:define name="content">
 
         <div style="padding-top: 20px;">
-            <h2>Catalog</h2>
+            <h2>Orders</h2>
 
             <table class="table">
                 <thead class="thead">
                 <tr>
-                    <th>Number</th>
-                    <th>Description</th>
-                    <th style="text-align: right;">Price</th>
-                    <th style="width: 150px;"></th>
+                    <th>Id</th>
+                    <th>Purchase date</th>
+                    <th>Delivery date</th>
+                    <th>Items</th>
+                    <th style="text-align: right;">Total</th>
+                    <th></th>
                 </tr>
                 </thead>
                 <tbody>
-                <c:forEach items="#{catalogBean.products}" var="product">
+                <c:forEach items="#{orderBean.orders}" var="order">
                     <tr>
-                        <td>#{product.number}</td>
-                        <td>#{product.name}</td>
+                        <td>#{order.orderId}</td>
+                        <td>
+                            <h:outputText value="#{order.purchaseDate}">
+                                <f:convertDateTime pattern="dd.MM.yyyy"/>
+                            </h:outputText>
+                        </td>
+                        <td>
+                            <h:outputText value="#{order.deliveryDate}">
+                                <f:convertDateTime pattern="dd.MM.yyyy"/>
+                            </h:outputText>
+                        </td>
+                        <td>#{order.numberOfItems}</td>
                         <td style="text-align: right;">
-                            <h:outputText value="#{product.prices.get(0).amount}">
+                            <h:outputText value="#{order.totalAmount}">
                                 <f:convertNumber pattern="#0.00"/>
                             </h:outputText>
                         </td>
-                        <td style="text-align: right;">
-                            <h:panelGroup rendered="#{userBean.customer != null}">
-                                <h:form>
-                                    <h:commandLink value="Add to cart"
-                                                   action="#{cartBean.addItem(product, userBean.customer)}"/>
-                                </h:form>
-                            </h:panelGroup>
+                        <td>
                         </td>
                     </tr>
                 </c:forEach>

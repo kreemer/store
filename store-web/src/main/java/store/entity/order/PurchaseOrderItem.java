@@ -66,7 +66,12 @@ public class PurchaseOrderItem extends BaseEntity {
 
     @Access(AccessType.PROPERTY)
     public BigDecimal getTotalPrice() {
-        return product.getPrices().get(0).getAmount().multiply(new BigDecimal(quantity));
+        if (product != null) {
+            BigDecimal amount = product.getPrices().get(0).getAmount();
+            return amount.multiply(new BigDecimal(quantity));
+        } else {
+            return BigDecimal.ZERO;
+        }
     }
 
     public void setTotalPrice(BigDecimal totalPrice) {

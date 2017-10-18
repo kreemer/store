@@ -26,7 +26,7 @@ public class OrderRepositoryTest extends BaseTestWithEntityManager {
         orderRepository.save(order);
         em.flush();
 
-        List<PurchaseOrderInfo> purchaseOrderInfos = orderRepository.getPurchaseOrderInfos();
+        List<PurchaseOrderInfo> purchaseOrderInfos = orderRepository.getPurchaseOrderInfos(1);
 
         assertEquals(0, purchaseOrderInfos.size());
     }

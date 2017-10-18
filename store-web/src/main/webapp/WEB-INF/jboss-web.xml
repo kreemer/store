@@ -3,4 +3,6 @@
         "http://www.jboss.org/j2ee/dtd/jboss-web_5_0.dtd">
 <jboss-web>
     <context-root>store</context-root>
+
+    <security-domain>other</security-domain>
 </jboss-web>
