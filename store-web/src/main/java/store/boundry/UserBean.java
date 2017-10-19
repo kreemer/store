@@ -20,16 +20,18 @@ public class UserBean implements Serializable {
 
     private String username;
     private String password;
+    private String message;
     private Customer customer;
 
     public void login() {
+        message = null;
         try {
             HttpServletRequest req = (HttpServletRequest) FacesContext.getCurrentInstance().getExternalContext().getRequest();
             req.login(username, password);
 
             customer = customerRepository.findCustomerByUsername(username);
         } catch (ServletException e) {
-            e.printStackTrace();
+            message = "Login failed";
         }
     }
 
@@ -60,5 +62,13 @@ public class UserBean implements Serializable {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public String getMessage() {
+        return message;
+    }
+
+    public void setMessage(String message) {
+        this.message = message;
     }
 }

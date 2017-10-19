@@ -47,6 +47,9 @@
                             <h:panelGroup rendered="#{userBean.customer == null}">
                                 <h:form>
                                     <div class="form-row">
+                                        <div class="col" style="width: 200px;">
+                                            <h:outputText value="#{userBean.message}" style="color:red;"/>
+                                        </div>
                                         <div class="col">
                                             <h:inputText value="#{userBean.username}"
                                                          styleClass="form-control mr-sm-2"/>
