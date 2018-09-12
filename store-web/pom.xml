@@ -5,7 +5,6 @@
 
     <groupId>store</groupId>
     <artifactId>store-web</artifactId>
-    <version>1.0.0</version>
     <packaging>war</packaging>
 
     <name>store-web</name>
@@ -19,7 +18,7 @@
         <relativePath>../pom.xml</relativePath>
         <groupId>store</groupId>
         <artifactId>store</artifactId>
-        <version>1.0</version>
+        <version>1.0.0</version>
     </parent>
 
     <dependencies>
