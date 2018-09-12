@@ -4,7 +4,7 @@ pipeline {
     }
     environment {
       ORG               = 'kreemer'
-      APP_NAME          = 'store-web'
+      APP_NAME          = 'store'
       CHARTMUSEUM_CREDS = credentials('jenkins-x-chartmuseum')
     }
     stages {
@@ -50,7 +50,7 @@ pipeline {
             sh "echo \$(jx-release-version) > VERSION"
             sh "mvn versions:set -DnewVersion=\$(cat VERSION)"
           }
-          dir ('./charts/store-web') {
+          dir ('./charts/store') {
             container('maven') {
               sh "make tag"
             }
@@ -70,7 +70,7 @@ pipeline {
           branch 'master'
         }
         steps {
-          dir ('./charts/store-web') {
+          dir ('./charts/store') {
             container('maven') {
               sh 'jx step changelog --version v\$(cat ../../VERSION)'
 
