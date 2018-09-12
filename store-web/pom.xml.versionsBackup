@@ -18,7 +18,7 @@
     <parent>
         <groupId>store</groupId>
         <artifactId>store</artifactId>
-        <version>1.0.0</version>
+        <version>1.0</version>
     </parent>
 
     <dependencies>
