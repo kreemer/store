@@ -18,7 +18,7 @@
         <relativePath>../pom.xml</relativePath>
         <groupId>store</groupId>
         <artifactId>store</artifactId>
-        <version>1.0.2</version>
+        <version>1.0.0</version>
     </parent>
 
     <dependencies>
